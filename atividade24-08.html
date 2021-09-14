@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://image.flaticon.com/icons/png/128/124/124050.png?ga=GA1.2.1377395659.1615420800">
+    <title>Lucas marcão</title>
+    <style>
+        body{
+            color: cyan;
+            font: bolder 15pt Times;
+        }
+        h1{
+            color: cyan;
+            font: bold 30pt Arial;
+        }
+        button{
+            background-color: teal;
+            font: italic 20pt Times;
+            color: white;
+            border-style: solid;
+            border: royalblue;
+            
+        }
+        
+    </style>
+</head>
+<body background="https://i.pinimg.com/originals/10/2f/aa/102faa90134c376c79688412fe154d46.gif">
+    <h1>Meu primeiro Formulário. </h1>
+    <form action="">
+    <fieldset > <legend><h2>Cadastro na loja online</h2></legend>
+        <p><label for="nome"> Nome completo:  </label>
+        <input type = "text" name="nome" id="nome" required/> </p>
+
+        <p><label for="nascimento"> Data de nascimento: </label> 
+        <input type="date" name="nascimento" id="nascimento"/></p>
+        <script>
+            function mascara(i){
+   
+            var v = i.value;
+            
+            if(isNaN(v[v.length-1])){ // impede entrar outro caractere que não seja número
+                i.value = v.substring(0, v.length-1);
+                return;
+            }
+            
+            i.setAttribute("maxlength", "14");
+            if (v.length == 3 || v.length == 7) i.value += ".";
+            if (v.length == 11) i.value += "-";
+
+            }
+
+        </script>
+        <p><label for="cpf"> CPF: </label>
+        <input oninput="mascara(this)" type="text" id="cpf" name="cpf"></p>
+        
+        <p><label for="rua"> Rua: </label>
+        <input type="text" id="rua" name ="rua" placeholder="nome de sua rua."/></p>
+
+        <p><label for="numero"> Número: </label>
+        <input type="number" id="numero" name ="numero"/></p>
+        
+        <p><label for="complemento"> Complementos: </label>
+        <br>
+        <textarea id="story" name="story"
+        rows="6" cols="33" placeholder="Informações adcionais sobre sua localização."></textarea>
+
+        <p><label for="cidade"> Cidade: </label>
+        <input type="text" id="cidade" name ="cidade" placeholder="nome de sua cidade."/></p>
+        
+        <p><label for="estado"> Estado: </label>
+        <input type="text" id="estado" name ="estado" placeholder="nome de seu estado."/></p>
+
+        <script>
+            function newmascara(n){
+                
+            var c = n.value;
+            
+            if(isNaN(c[c.length-1])){ // impede entrar outro caractere que não seja número
+                n.value = c.substring(0, c.length-1);
+                return;
+            }
+            
+            n.setAttribute("maxlength", "9");
+            if (c.length == 5) n.value += "-";
+            
+            }
+
+        </script>
+
+        <p><label for="cep"> CEP: </label>
+        <input oninput="newmascara(this)" type="text" id="cep" name="cep"></p>
+        
+        <p><label for="email"> Email: </label>
+        <input type="text" id="email" name="email"></p>
+        
+        <script>
+            function telefonemasc(n){
+                
+                var c = n.value;
+                
+                if(isNaN(c[c.length-1])){ // impede entrar outro caractere que não seja número
+                    n.value = c.substring(0, c.length-1);
+                    return;
+                }
+                
+                n.setAttribute("maxlength", "14");
+                 
+                if (c.length == 1) n.value = "(";
+                if (c.length == 3) n.value += ")";
+                
+                if (c.length == 9) n.value += "-";
+            }
+        </script>
+        
+        <p><label for="telefone"> Telefone: </label>
+        <input oninput="telefonemasc(this)" type="text" id="telefone" name="telefone"></p>
+        
+        <p><label for="login">Login: </label>
+        <input type="text" id="login" name="login"></p>
+
+        <p><label for="senha">Senha: </label>
+        <input type="password" id="senha" name="senha"></p>
+
+        <p>receber Informações por email?  
+        <input type="radio" id="confirmsim" name="confirmador" value="confirmsim">
+        <label for="confirmsim">Sim</label>
+        <input type="radio" id="confirmnao" name="confirmador" value="confirmnao">
+        <label for="confirmnao">Não</label>
+        </p>
+        
+        <p>receber Informações por contato telefonico?  
+            <input type="radio" id="telefonesim" name="telefonador" value="confirmsim">
+            <label for="telefonesim">Sim</label>
+            <input type="radio" id="telefonenao" name="telefonador" value="confirmnao">
+            <label for="telefonenao">Não</label>
+            </p>
+            
+        
+
+    </fieldset>
+    
+    <input type="reset" value="LIMPAR TUDO">
+
+    <input type="submit" value="ENVIAR">
+    </form>
+    
+</body>
+</html>
