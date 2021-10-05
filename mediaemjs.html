@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calcular media</title>
+    <style>
+        body{
+            color: darkorange;
+            background-color: bisque;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 30px;
+        }
+        fieldset{
+            background-color: black;
+        }
+        input{
+            height: 30px;
+        }
+        button{
+            font-size: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            height: 60px;
+            width: 120px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <h1>Esse site quer saber se vc passou de ano</h1>
+    <fieldset>
+        <center>
+        <label for="nota1">Primeira nota</label>
+        <input type="text" placeholder="digite a sua nota aqui" class="nota1" id="nota1" oninput="telefonemasc(this)">
+        <br>
+        <label for="nota2">segunda nota</label>
+        <input type="text" placeholder="digite a sua nota aqui" class="nota2" id="nota2" oninput="telefonemasc(this)">
+        <br>
+        <label for="nota3">terceira nota</label>
+        <input type="text" placeholder="digite a sua nota aqui" class="nota3" id="nota3" oninput="telefonemasc(this)">
+        <br>
+        <label for="nota4">quarta nota</label>
+        <input type="text" placeholder="digite a sua nota aqui" class="nota4" id="nota4" oninput="telefonemasc(this)">
+        <br>
+        <button onclick="media()"> calcular </button>
+        <p class="resultado"> A sua nota vai aparecer aqui</p>
+    </center>
+    </fieldset>
+    <script>
+        function telefonemasc(n){
+            
+            var c = n.value;
+            
+            if(isNaN(c[c.length-1])){ // impede entrar outro caractere que não seja número
+                n.value = c.substring(0, c.length-1);
+                return;
+            }
+
+            n.setAttribute("maxlength", "8");
+        }
+    </script>
+    <script>
+        
+        
+        function media() {
+            var primeira = document.querySelector(".nota1").value
+            var segunda = document.querySelector(".nota2").value
+            var terceira = document.querySelector(".nota3").value
+            var quarta = document.querySelector(".nota4").value
+            var soma = (parseInt(primeira) + parseInt(segunda) + parseInt(terceira) + parseInt(quarta))/4
+            if (primeira.length==0 || segunda.length==0 || terceira.length==0 || quarta.length==0) {
+            window.alert("voce digitou coisa errada no campo da nota.")
+            document.querySelector(".resultado").innerHTML = "A sua nota vai aparecer aqui"
+            }else{
+            document.querySelector(".resultado").innerHTML = "A sua media é "+soma +"."
+            }
+            
+        }
+    </script>
+</body>
+</html>
