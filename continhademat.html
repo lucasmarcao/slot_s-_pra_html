@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="shortcut icon" href="https://www.matematica.pt/images/256_icon.png" type="image/x-icon">
+        <title>minhas conta loka</title>
+        <meta charset="utf-8">
+        
+        <style>
+            body{
+                background-color: greenyellow;
+                font: bolder 30pt Algerian;
+            }
+            input{
+                color: limegreen;
+                height: 35px;
+                font-size: xx-large;
+            }
+            #oi{
+                margin-top: 20px;
+                background-color: khaki;
+                border: black solid;
+                border-radius: 3em;
+                height: 100px;
+                width: 200px;
+                font: bolder 20pt Algerian;
+
+            }
+            fieldset{
+                background-color: mediumseagreen;
+                border: solid;
+                box-shadow: black 0.4em 0.4em 0.3em
+            }
+            #avisor{
+                color: azure;
+                font: bolder 25pt Algerian;
+            }
+        </style>
+        
+    </head>
+    <body>
+        <h1>Soma dos numeros de 0 á x</h1>
+        <fieldset>
+            
+                Valor de x*:
+                <input class="num1" type="number"> <button id="oi" onclick=" clicar()">Resultado</button><br>
+                
+                <h3 class="resultado">SEU RESULTADO SAIRÁ AQUI!</h3>
+                <br>
+               
+        </fieldset>
+        <p id="avisor">*caso você digite um numero com virgula, o meu projeto vai fazer a conta do inteiro mais proximo :)</p>
+        <script>
+        function clicar() {
+            var num1 = document.querySelector(".num1").value
+            if (parseInt(num1)>=0) {
+                if (((parseInt(num1)+1)*(parseInt(num1)/2)%2)==0) {
+                    var resultado = (parseInt(num1)+1)*(parseInt(num1)/2)
+                    document.querySelector(".resultado").innerHTML = 'seu numero é par, seu resultado é  '+resultado
+                }else{
+                    var resultado = (parseInt(num1)+1)*(parseInt(num1)/2)
+                    document.querySelector(".resultado").innerHTML = 'seu numero é impar, seu resultado é  '+resultado
+                }
+                
+            } else {
+                if ((((parseInt(num1)-parseInt(num1)*2)+1)*((parseInt(num1)-parseInt(num1)*2)/2)%2)==0) {
+                    var resultado = ((parseInt(num1)-parseInt(num1)*2)+1)*((parseInt(num1)-parseInt(num1)*2)/2)
+                    document.querySelector(".resultado").innerHTML = 'seu numero é par, seu resultado é  - '+resultado
+                }else{
+                    var resultado = ((parseInt(num1)-parseInt(num1)*2)+1)*((parseInt(num1)-parseInt(num1)*2)/2)
+                    document.querySelector(".resultado").innerHTML = 'seu numero é impar, seu resultado é  - '+resultado
+                }  
+            }                     
+        }
+        
+        function pegaraleatorio(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            document.querySelector(".resultado").innerHTML = Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        </script>
+        
+    </body>
+</html>
